@@ -30,6 +30,9 @@
             <li <%= if @conn.request_path == "/" || @conn.request_path == "/books", do: raw("class=\"active\"") %>>
               <a href="/books">Books</a>
             </li>
+            <li <%= if @conn.request_path == "/articles", do: raw("class=\"active\"") %>>
+              <a href="/articles">Articles</a>
+            </li>
           </ul>
         </div>
       </div>

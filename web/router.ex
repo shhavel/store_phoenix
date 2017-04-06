@@ -18,6 +18,7 @@ defmodule Store.Router do
 
     get "/", BookController, :index
     resources "/books", BookController, only: [:index]
+    resources "/articles", ArticleController, only: [:index]
   end
 
   # Other scopes may use custom stacks.
