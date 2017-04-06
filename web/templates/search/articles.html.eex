@@ -1,0 +1,26 @@
+<h3>Articles</h3>
+
+<%= if length(@articles) > 0 do %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Body</th>
+      <th>Authors</th>
+      <th>Genres</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for article <- @articles do %>
+    <tr>
+      <td><%= article.name %></td>
+      <td><%= article.body %></td>
+      <td><%= article.authors %></td>
+      <td><%= article.genres %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<% else %>
+<h4>No results</h4>
+<% end %>

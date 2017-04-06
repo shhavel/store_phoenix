@@ -1,0 +1,28 @@
+<h2>Listing books</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Available</th>
+      <th>Genres</th>
+      <th>Authors</th>
+      <th>Publisher</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for book <- @books do %>
+    <tr>
+      <td><%= book.name %></td>
+      <td><%= book.available %></td>
+      <td><%= book.genres %></td>
+      <td><%= book.authors %></td>
+      <td><%= book.publisher %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= if length(@books) > 0 do %>
+<%= pagination_links @page %>
+<% end %>

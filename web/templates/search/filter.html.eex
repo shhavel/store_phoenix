@@ -1,0 +1,41 @@
+<h2>Find books and articles by specific parameters</h2>
+
+<%= form_for @conn, search_path(@conn, :filter), [as: :search, method: :get], fn f -> %>
+  <div class="form-group">
+    <%= label f, :name, "Name", class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label f, :genre, "Genre", class: "control-label" %>
+    <%= text_input f, :genre, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label f, :author, "Author", class: "control-label" %>
+    <%= text_input f, :author, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label f, :publisher, "Publisher", class: "control-label" %>
+    <%= text_input f, :publisher, class: "form-control" %>
+  </div>
+
+  <%= submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<%= if is_map(@conn.params["search"]) && (
+  is_binary(@conn.params["search"]["name"]) and @conn.params["search"]["name"] != "" ||
+  is_binary(@conn.params["search"]["genre"]) and @conn.params["search"]["genre"] != "" ||
+  is_binary(@conn.params["search"]["author"]) and @conn.params["search"]["author"] != "" ||
+  is_binary(@conn.params["search"]["publisher"]) and @conn.params["search"]["publisher"] != "") do %>
+
+  <%= render "books.html", books: @books %>
+
+<% end %>
+
+<%= if is_map(@conn.params["search"]) && (
+  is_binary(@conn.params["search"]["name"]) and @conn.params["search"]["name"] != "" ||
+  is_binary(@conn.params["search"]["genre"]) and @conn.params["search"]["genre"] != "" ||
+  is_binary(@conn.params["search"]["author"]) and @conn.params["search"]["author"] != "") do %>
+
+  <%= render "articles.html", articles: @articles %>
+
+<% end %>
