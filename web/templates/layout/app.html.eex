@@ -44,6 +44,14 @@
             <li <%= if @conn.request_path == "/search/filter", do: raw("class=\"active\"") %>>
               <a href="/search/filter">Search</a>
             </li>
+
+            <li <%= if @conn.request_path == "/lists/books", do: raw("class=\"active\"") %>>
+              <a href="/lists/books">Discount Lists</a>
+            </li>
+
+            <li>
+              <a href="https://github.com/shhavel/store_phoenix">Source code</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -56,15 +64,6 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
-
-      <hr/>
-      <div class="row">
-        <div class="col-xs-12">
-          <footer>
-            <a href="https://github.com/shhavel/store_phoenix"">Source code</a>
-          </footer>
-        </div>
-      </div>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>

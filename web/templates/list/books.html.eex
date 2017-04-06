@@ -1,0 +1,10 @@
+<h3>Discount Lists</h3>
+
+<%= for {list_name, books} <- @entries do %>
+  <ul class="list-group">
+    <li class="list-group-item"><b><%= list_name %></b></li>
+  <%= for {_, book_name} <- books do %>
+    <li class="list-group-item"><%= book_name %></li>
+  <% end %>
+  </ul>
+<% end %>

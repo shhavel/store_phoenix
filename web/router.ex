@@ -21,6 +21,7 @@ defmodule Store.Router do
     get "/books/prime", BookController, :prime
     resources "/articles", ArticleController, only: [:index]
     get "/search/filter", SearchController, :filter
+    get "/lists/books", ListController, :books
   end
 
   # Other scopes may use custom stacks.
