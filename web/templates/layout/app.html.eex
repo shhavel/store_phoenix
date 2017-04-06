@@ -61,7 +61,7 @@
       <div class="row">
         <div class="col-xs-12">
           <footer>
-            <p style="color: #777777;">In case of any unresolved questions related to this site do not hesitate to <a href="mailto:shhavel@gmail.com">notify support</a>.</p>
+            <a href="https://github.com/shhavel/store_phoenix"">Source code</a>
           </footer>
         </div>
       </div>
