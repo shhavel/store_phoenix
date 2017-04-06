@@ -18,6 +18,7 @@ defmodule Store.Router do
 
     get "/", BookController, :index
     resources "/books", BookController, only: [:index]
+    get "/books/prime", BookController, :prime
     resources "/articles", ArticleController, only: [:index]
   end
 

@@ -7,6 +7,7 @@ defmodule Store.Book do
     field :genres, :string
     field :authors, :string
     field :publisher, :string
+    field :name_length_is_prime, :boolean, default: false
 
     timestamps(inserted_at: :created_at)
   end
@@ -16,7 +17,7 @@ defmodule Store.Book do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :available, :genres, :authors, :publisher])
-    |> validate_required([:name, :available, :genres, :authors, :publisher])
+    |> cast(params, [:name, :available, :genres, :authors, :publisher, :name_length_is_prime])
+    |> validate_required([:name, :available, :genres, :authors, :publisher, :name_length_is_prime])
   end
 end

@@ -27,9 +27,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="nav navbar-nav">
-            <li <%= if @conn.request_path == "/" || @conn.request_path == "/books", do: raw("class=\"active\"") %>>
-              <a href="/books">Books</a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Books <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li <%= if @conn.request_path == "/" || @conn.request_path == "/books", do: raw("class=\"active\"") %>><a href="/books">All</a></li>
+                <li <%= if @conn.request_path == "/books/prime", do: raw("class=\"active\"") %>><a href="/books/prime">Prime</a></li>
+              </ul>
             </li>
+
             <li <%= if @conn.request_path == "/articles", do: raw("class=\"active\"") %>>
               <a href="/articles">Articles</a>
             </li>
