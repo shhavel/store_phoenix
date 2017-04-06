@@ -15,6 +15,7 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
     mix ecto.create
     pg_restore --verbose --clean --no-acl --no-owner -U postgres -d store_dev priv/repo/store.pgdb
+    psql -U postgres -d store_dev -c "DROP TABLE schema_migrations"
 
 ## Learn more
 

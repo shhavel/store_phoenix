@@ -7,21 +7,35 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Store!</title>
+    <title>Store</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="sr-only">STORE</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">STORE</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="nav navbar-nav">
+            <li <%= if @conn.request_path == "/" || @conn.request_path == "/books", do: raw("class=\"active\"") %>>
+              <a href="/books">Books</a>
+            </li>
           </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+        </div>
+      </div>
+    </nav> <!-- /navigation -->
 
+    <div class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
@@ -29,6 +43,14 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
+      <hr/>
+      <div class="row">
+        <div class="col-xs-12">
+          <footer>
+            <p style="color: #777777;">In case of any unresolved questions related to this site do not hesitate to <a href="mailto:shhavel@gmail.com">notify support</a>.</p>
+          </footer>
+        </div>
+      </div>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
