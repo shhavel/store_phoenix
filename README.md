@@ -1,4 +1,4 @@
-# Store
+# Store [![Build Status](https://travis-ci.org/shhavel/store_phoenix.svg?branch=master)](https://travis-ci.org/shhavel/store_phoenix)
 
 To start your Phoenix app:
 
